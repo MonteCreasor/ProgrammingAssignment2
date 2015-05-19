@@ -1,13 +1,14 @@
-## The is script contains two functions that together provide a
+## The script contains two functions that together provide a
 ## mechanism to calculate and cache the inverse of an invertible
 ## matrix. To calculate an inverse matrix, first call makeCacheMatrix()
-## passing the source matrix as a parameter. This function will return
-## a matrix wrapper object that can then be passed to cacheSolve() which
-## will return the inverse matrix for the specified matrix wrapper object.
-## The first call to cacheSolve() for a given matrix wrapper object will
-## calculate and cache the inverse matrix of original matrix passed to
-## makeCacheMatrix. Subsequent calls with that object will simply
-## return the previously cached inverse matrix.
+## passing a source invertible matrix as a parameter. This function 
+## will return a matrix wrapper object that can then be passed to 
+## cacheSolve() which will return the inverse matrix for the specified 
+## matrix wrapper object. The first call to cacheSolve() for a given 
+## matrix wrapper object will calculate and cache the inverse matrix 
+## of the original matrix (passed to makeCacheMatrix()). Subsequent 
+## calls with that wrapper object will simply return the previously 
+## cached inverse matrix.
 
 ####################################################################
 ## This function provides support for saving and retrieving a
@@ -55,12 +56,12 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function will return the inverse of the specified matrix
 ## wrapper object that was returned from a previous invocation of
 ## makeCacheMatrix() function. When this function is first called
-## with a new matrix wrapper object, it calls solve() function,
-## passing the original matrix along with the specified parameters,
-## to calculate the inverse matrix. This inverse matrix is then 
-## stored in a local within the matrix wrapper object. Subsequent 
-## calls with the same matrix wrapper object will simply return the 
-## cached value.
+## with a new matrix wrapper object, it will transparently pass 
+## the original matrix along with the specified parameters to the
+## solve() function to calculate the inverse matrix. This inverse 
+## matrix is then stored in a local within the matrix wrapper object.
+## Subsequent calls with the same matrix wrapper object will simply 
+## return the cached value.
 
 cacheSolve <- function(x, ...) {
 	## Return a matrix that is the inverse of 'x'
