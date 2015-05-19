@@ -1,4 +1,4 @@
-## The script contains two functions that together provide a
+## This script contains two functions that together provide a
 ## mechanism to calculate and cache the inverse of an invertible
 ## matrix. To calculate an inverse matrix, first call makeCacheMatrix()
 ## passing a source invertible matrix as a parameter. This function 
